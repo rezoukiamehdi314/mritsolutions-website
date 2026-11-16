@@ -123,6 +123,8 @@ h1{font-size:clamp(2.1rem,4.5vw,3.1rem)}
 h2{font-size:clamp(1.6rem,3vw,2.1rem)}
 .hero{padding:56px 0}
 .grid,.steps{margin-top:22px}
+/* Big screens: keep photo at natural size, fade edges */
+@media (min-width:1700px){.hero{min-height:720px}.hero::before{background:linear-gradient(90deg,#040e1e 0,#040e1e calc(50% - 800px),rgba(4,14,30,0) calc(50% - 450px),rgba(4,14,30,0) calc(50% + 450px),#040e1e calc(50% + 800px),#040e1e 100%),linear-gradient(90deg,rgba(4,14,30,.92) 0%,rgba(4,14,30,.78) 35%,rgba(4,14,30,.25) 65%,rgba(4,14,30,.05) 100%),linear-gradient(0deg,rgba(4,14,30,.55) 0%,rgba(4,14,30,0) 30%),#040e1e url("/hero-bg.jpg") center/1700px auto no-repeat}}
 </style>
 </head>
 <body>
