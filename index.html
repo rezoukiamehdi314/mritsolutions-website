@@ -107,6 +107,17 @@ input,textarea,select{font:inherit;padding:13px 14px;border-radius:14px;border:1
 footer{padding:30px 0 44px;background:var(--navy);color:#b9d0ee;font-size:.95rem}
 @media (max-width:780px){.hero{grid-template-columns:1fr}.art{order:-1}.art svg{max-width:260px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Hero with server-room background image */
+body{overflow-x:hidden}
+.hero{position:relative;grid-template-columns:1fr;color:#fff;padding:64px 0;isolation:isolate}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;background:linear-gradient(90deg,rgba(4,14,30,.92) 0%,rgba(4,14,30,.78) 35%,rgba(4,14,30,.25) 65%,rgba(4,14,30,.05) 100%),linear-gradient(0deg,rgba(4,14,30,.55) 0%,rgba(4,14,30,0) 30%),#061426 url("/hero-bg.jpg") center/cover no-repeat}
+.hero .art{display:none}
+.hero h1{color:#fff}
+.hero .lead{color:#d6e4f5}
+.hero .btn.alt{background:rgba(255,255,255,.08);color:#fff;border:2px solid rgba(255,255,255,.75)}
+.hero .area{background:rgba(255,255,255,.12);color:#fff}
+.hero .area svg{stroke:#7fb8ff}
+@media (max-width:780px){.hero::before{background:linear-gradient(0deg,rgba(4,14,30,.92) 0%,rgba(4,14,30,.75) 60%,rgba(4,14,30,.55) 100%),#061426 url("/hero-bg.jpg") 70% center/cover no-repeat}}
 </style>
 </head>
 <body>
