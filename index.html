@@ -125,6 +125,23 @@ h2{font-size:clamp(1.6rem,3vw,2.1rem)}
 .grid,.steps{margin-top:22px}
 /* Big screens: keep photo at natural size, fade edges */
 @media (min-width:1700px){.hero{min-height:720px}.hero::before{background:linear-gradient(90deg,#040e1e 0,#040e1e calc(50% - 800px),rgba(4,14,30,0) calc(50% - 450px),rgba(4,14,30,0) calc(50% + 450px),#040e1e calc(50% + 800px),#040e1e 100%),linear-gradient(90deg,rgba(4,14,30,.92) 0%,rgba(4,14,30,.78) 35%,rgba(4,14,30,.25) 65%,rgba(4,14,30,.05) 100%),linear-gradient(0deg,rgba(4,14,30,.55) 0%,rgba(4,14,30,0) 30%),#040e1e url("/hero-bg.jpg") center/1700px auto no-repeat}}
+/* Services cards with photos */
+.h2-line{display:block;width:64px;height:4px;border-radius:4px;background:var(--brand);margin:12px 0 0}
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:30px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 4px 18px rgba(10,35,66,.06);transition:transform .2s ease,box-shadow .2s ease;display:flex;flex-direction:column}
+.svc:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(10,35,66,.12)}
+.svc img{display:block;width:100%;height:auto;aspect-ratio:12/5;object-fit:cover}
+.svc-body{padding:20px 24px 24px}
+.svc-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.svc .ico{flex:none;width:52px;height:52px;border-radius:16px;background:var(--soft);display:grid;place-items:center}
+.svc .ico .i{width:30px;height:30px}
+.svc h3{font:800 1.3rem/1.2 "Nunito Sans",sans-serif;margin:0;color:var(--ink)}
+.svc .tag{background:var(--brand);color:#fff;font:800 12px "Nunito Sans",sans-serif;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
+.svc ul{list-style:none;margin:0;padding:0}
+.svc li{position:relative;padding-left:30px;margin:7px 0;color:var(--ink);font-size:1rem}
+.svc li::before{content:"";position:absolute;left:2px;top:.35em;width:16px;height:9px;border-left:3px solid var(--brand);border-bottom:3px solid var(--brand);transform:rotate(-45deg);border-radius:1px}
+@media (max-width:980px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.svc-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -176,14 +193,14 @@ h2{font-size:clamp(1.6rem,3vw,2.1rem)}
 </div></section>
 
 <section id="services" class="tint"><div class="wrap">
-  <h2>What we take care of</h2>
-  <div class="grid">
-    <article class="card"><div class="ico"><svg class="i"><use href="#i-headset"/></svg></div><h3>Help for your team</h3><ul><li>Computer and laptop setup and repair</li><li>Printer and phone problems</li><li>Password and account help</li><li>Remote or on-site visits</li></ul></article>
-    <article class="card"><div class="ico"><svg class="i"><use href="#i-server"/></svg></div><h3>Servers and backups</h3><ul><li>Windows Server setup</li><li>File sharing and permissions</li><li>Automatic backups, tested</li><li>Updates and monitoring</li></ul></article>
-    <article class="card"><div class="ico"><svg class="i"><use href="#i-switch"/></svg></div><h3>Network and Wi-Fi</h3><ul><li>Switch and router setup</li><li>Wi-Fi coverage fixes</li><li>Firewall and VPN</li><li>Internet outage troubleshooting</li></ul></article>
-    <article class="card"><div class="ico"><svg class="i"><use href="#i-cloud"/></svg></div><h3>Microsoft 365</h3><ul><li>Email setup and migration</li><li>Teams, OneDrive, SharePoint</li><li>Users, licenses and MFA</li><li>Shared mailboxes</li></ul></article>
-    <article class="card"><div class="ico"><svg class="i"><use href="#i-shield"/></svg></div><h3>Antivirus and security</h3><ul><li>Antivirus installed and managed</li><li>Ransomware protection</li><li>Scam email filtering</li><li>Monitoring and alerts</li></ul></article>
-    <article class="card"><div class="ico"><svg class="i"><use href="#i-web"/></svg></div><h3>Websites</h3><ul><li>Modern website for your business</li><li>Your own domain and business email</li><li>Contact forms that reach your inbox</li><li>Hosting, updates and changes</li></ul></article>
+  <h2>What we take care of</h2><span class="h2-line"></span>
+  <div class="svc-grid">
+    <article class="svc"><img src="/svc-help.jpg" alt="Headset on a desk in an office" loading="lazy" width="900" height="360"><div class="svc-body"><div class="svc-head"><div class="ico"><svg class="i"><use href="#i-headset"/></svg></div><h3>Help for your team</h3></div><ul><li>Computer and laptop setup and repair</li><li>Printer and phone problems</li><li>Password and account help</li><li>Remote or on-site visits</li></ul></div></article>
+    <article class="svc"><img src="/svc-servers.jpg" alt="Rack servers" loading="lazy" width="900" height="360"><div class="svc-body"><div class="svc-head"><div class="ico"><svg class="i"><use href="#i-server"/></svg></div><h3>Servers and backups</h3></div><ul><li>Windows Server setup</li><li>File sharing and permissions</li><li>Automatic backups, tested</li><li>Updates and monitoring</li></ul></div></article>
+    <article class="svc"><img src="/svc-network.jpg" alt="Network switch with blue cables" loading="lazy" width="900" height="360"><div class="svc-body"><div class="svc-head"><div class="ico"><svg class="i"><use href="#i-switch"/></svg></div><h3>Network and Wi-Fi</h3></div><ul><li>Switch and router setup</li><li>Wi-Fi coverage fixes</li><li>Firewall and VPN</li><li>Internet outage troubleshooting</li></ul></div></article>
+    <article class="svc"><img src="/svc-m365.jpg" alt="Microsoft 365 apps" loading="lazy" width="900" height="360"><div class="svc-body"><div class="svc-head"><div class="ico"><svg class="i"><use href="#i-cloud"/></svg></div><h3>Microsoft 365</h3></div><ul><li>Email setup and migration</li><li>Teams, OneDrive, SharePoint</li><li>Users, licenses and MFA</li><li>Shared mailboxes</li></ul></div></article>
+    <article class="svc"><img src="/svc-security.jpg" alt="Security shield with padlock" loading="lazy" width="900" height="360"><div class="svc-body"><div class="svc-head"><div class="ico"><svg class="i"><use href="#i-shield"/></svg></div><h3>Antivirus and security</h3></div><ul><li>Antivirus installed and managed</li><li>Ransomware protection</li><li>Spam email filtering</li><li>Monitoring and alerts</li></ul></div></article>
+    <article class="svc"><img src="/svc-web.jpg" alt="Business website on a monitor" loading="lazy" width="900" height="360"><div class="svc-body"><div class="svc-head"><div class="ico"><svg class="i"><use href="#i-web"/></svg></div><h3>Websites</h3><span class="tag">NEW</span></div><ul><li>Modern website for your business</li><li>Your own domain and business email</li><li>Contact forms that reach your inbox</li><li>Hosting, updates and changes</li></ul></div></article>
   </div>
 </div></section>
 
@@ -298,7 +315,7 @@ var FR={
 'Email setup and migration':'Configuration et migration du courriel',
 'Users, licenses and MFA':'Utilisateurs, licences et authentification multifacteur','Shared mailboxes':'Boîtes courriel partagées',
 'Antivirus and security':'Antivirus et sécurité','Antivirus installed and managed':'Antivirus installé et géré',
-'Ransomware protection':'Protection contre les rançongiciels','Scam email filtering':'Filtrage des courriels frauduleux',
+'Ransomware protection':'Protection contre les rançongiciels','Spam email filtering':'Filtrage des courriels indésirables','NEW':'NOUVEAU',
 'Monitoring and alerts':'Surveillance et alertes','Websites':'Sites Web','Modern website for your business':'Site Web moderne pour votre entreprise','Your own domain and business email':'Votre propre nom de domaine et courriel d’entreprise','Contact forms that reach your inbox':'Formulaires de contact qui arrivent dans votre boîte courriel','Hosting, updates and changes':'Hébergement, mises à jour et modifications',
 'Need help right now? Get remote support':'Besoin d’aide tout de suite? Obtenez du soutien à distance',
 'Call us first at':'Appelez-nous d’abord au',
