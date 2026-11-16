@@ -255,6 +255,7 @@ h2{font-size:clamp(1.6rem,3vw,2.1rem)}
   <form id="form">
     <label>Your name<input name="name" required autocomplete="name"></label>
     <label>Email<input name="email" type="email" required autocomplete="email"></label>
+    <div style="display:grid;grid-template-columns:1fr 110px;gap:12px"><label>Phone (optional)<input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label><label>Ext.<input name="ext" inputmode="numeric" maxlength="8"></label></div>
     <label>Type of business<input name="biz" placeholder="e.g. dental clinic, law office"></label>
     <label>How can we help?<textarea name="msg" rows="4"></textarea></label>
     <button class="btn" type="submit">Send message</button>
@@ -330,7 +331,7 @@ var FR={
 'or email':'ou écrivez à',
 'Your name':'Votre nom','Email':'Courriel','Type of business':'Type d’entreprise','How can we help?':'Comment pouvons-nous vous aider?','Send message':'Envoyer le message',
 '© 2026 MR IT Solutions · Serving Ottawa / Gatineau & Surrounding Areas':'© 2026 MR IT Solutions · Au service d’Ottawa / Gatineau et des environs',
-'Phone:':'Téléphone :','· Email:':'· Courriel :','About':'À propos','About MR IT Solutions':'À propos de MR IT Solutions','Your Technology. Our Priority.':'Votre technologie. Notre priorité.',
+'Phone:':'Téléphone :','Phone (optional)':'Téléphone (facultatif)','Ext.':'Poste','· Email:':'· Courriel :','About':'À propos','About MR IT Solutions':'À propos de MR IT Solutions','Your Technology. Our Priority.':'Votre technologie. Notre priorité.',
 'MR IT Solutions is an Ottawa-based IT services company providing reliable, professional technology support to businesses across Ottawa, Gatineau, and surrounding communities.':'MR IT Solutions est une entreprise de services informatiques établie à Ottawa qui offre un soutien technologique fiable et professionnel aux entreprises d’Ottawa, de Gatineau et des environs.',
 'With over 8 years of hands-on IT experience, we understand how important dependable technology is to your daily operations.':'Forts de plus de 8 ans d’expérience pratique en informatique, nous savons à quel point une technologie fiable est essentielle à vos activités quotidiennes.',
 'From troubleshooting everyday computer problems to managing servers, networks, Microsoft 365 environments, cybersecurity, and data backups, we deliver practical IT solutions tailored to your business.':'Du dépannage des problèmes informatiques courants à la gestion des serveurs, des réseaux, des environnements Microsoft 365, de la cybersécurité et des sauvegardes de données, nous offrons des solutions informatiques pratiques, adaptées à votre entreprise.',
@@ -454,7 +455,7 @@ document.getElementById('form').addEventListener('submit',function(e){
     var st=document.getElementById('status'), btn=f.querySelector('button[type=submit]');
     var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};
     if(btn) btn.disabled=true; if(st) st.textContent=L.sending;
-    var data={access_key:KEY,subject:'New message from mritsolutions.ca – '+(g('name')||'website visitor'),from_name:'MR IT Solutions website',name:g('name'),email:g('email'),business:g('biz'),message:g('msg'),botcheck:''};
+    var data={access_key:KEY,subject:'New message from mritsolutions.ca – '+(g('name')||'website visitor'),from_name:'MR IT Solutions website',name:g('name'),email:g('email'),phone:g('phone')?(g('phone')+(g('ext')?' ext. '+g('ext'):'')):'',business:g('biz'),message:g('msg'),botcheck:''};
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json();})
       .then(function(j){ if(j&&j.success){ f.reset(); if(st) st.textContent=L.ok; } else { if(st) st.textContent=L.err; } })
