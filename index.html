@@ -421,5 +421,29 @@ document.getElementById('form').addEventListener('submit',function(e){
  els.forEach(function(el,i){el.classList.add('reveal');el.style.setProperty('--d',((i%4)*0.09)+'s');io.observe(el)});
 })();
 </script>
+<script>
+/* Contact form: send directly via Web3Forms to info@mritsolutions.ca */
+(function(){
+  var KEY='7998a9ae-f0a7-4000-b92e-3e259bcb6008';
+  var T={
+    en:{sending:'Sending…',ok:'Thank you! We will contact you in less than one business day.',err:'Sorry, something went wrong. Please call 613-700-7186 or email info@mritsolutions.ca.'},
+    fr:{sending:'Envoi en cours…',ok:'Merci! Nous vous contacterons en moins d’un jour ouvrable.',err:'Désolé, une erreur est survenue. Appelez le 613-700-7186 ou écrivez à info@mritsolutions.ca.'}
+  };
+  document.addEventListener('submit',function(e){
+    var f=e.target; if(!f||f.id!=='form') return;
+    e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+    var lang=(document.documentElement.lang||'en').slice(0,2)==='fr'?'fr':'en', L=T[lang];
+    var st=document.getElementById('status'), btn=f.querySelector('button[type=submit]');
+    var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};
+    if(btn) btn.disabled=true; if(st) st.textContent=L.sending;
+    var data={access_key:KEY,subject:'New message from mritsolutions.ca – '+(g('name')||'website visitor'),from_name:'MR IT Solutions website',name:g('name'),email:g('email'),business:g('biz'),message:g('msg'),botcheck:''};
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json();})
+      .then(function(j){ if(j&&j.success){ f.reset(); if(st) st.textContent=L.ok; } else { if(st) st.textContent=L.err; } })
+      .catch(function(){ if(st) st.textContent=L.err; })
+      .then(function(){ if(btn) btn.disabled=false; });
+  },true);
+})();
+</script>
 </body>
 </html>
