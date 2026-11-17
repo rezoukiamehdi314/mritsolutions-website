@@ -258,14 +258,6 @@ h2{font-size:clamp(1.6rem,3vw,2.1rem)}
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <div class="finder" aria-live="polite">
-    <h2>Not sure what you need?</h2>
-    <div class="chips" id="chips" role="group" aria-label="Pick a problem"></div>
-    <p class="answer" id="answer">Tap what sounds closest and we’ll point you in the right direction.</p>
-  </div>
-</div></section>
-
 <section><div class="wrap"><div class="help"><svg class="person" role="img" aria-label="MR IT Solutions technician"><use href="#p-tech"/></svg><div><h2>Got a problem right now?</h2><p>Tell us what’s happening and we’ll tell you the quickest way to fix it. Call us at <a href="tel:+16137007186">613-700-7186</a>.</p><a class="btn" href="#contact">Send a message</a></div></div></div></section>
 <section id="contact"><div class="wrap">
   <h2>Let’s talk about your office</h2>
@@ -404,6 +396,7 @@ var attrEls=[].slice.call(document.querySelectorAll('[alt],[placeholder],[aria-l
 attrEls.forEach(function(el){['alt','placeholder','aria-label'].forEach(function(a){if(el.hasAttribute(a))el.setAttribute('data-en-'+a,el.getAttribute(a))})});
 
 function renderFinder(){
+  if(!chips||!ans)return;
  chips.innerHTML='';
  ITEMS[lang].forEach(function(it){
   var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=it[0];b.setAttribute('aria-pressed','false');
