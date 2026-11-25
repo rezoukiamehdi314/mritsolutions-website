@@ -4,11 +4,11 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta charset="utf-8">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="dark light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MR IT Solutions – IT support in Ottawa / Gatineau for clinics and local businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#ffffff;--surface:#fff;--soft:#eaf3ff;--ink:#07182b;--muted:#45607c;--brand:#0a6cf0;--brand-ink:#fff;--navy:#0a2342;--accent:#0a7cff;--accent-ink:#fff;--line:#d3e3f6;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -145,6 +145,37 @@ h2{font-size:clamp(1.6rem,3vw,2.1rem)}
 /* Canadian owned badge */
 .area-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .hero .area.ca-area svg.leaf{width:20px;height:20px;fill:#FF5A5F;stroke:none;flex:none}
+/* ===== Dark theme ===== */
+:root{--bg:#070c17;--surface:#0d1526;--soft:#14213a;--ink:#e8eef8;--muted:#a3b3cc;--navy:#0b1a33;--line:#1e2d4a;color-scheme:dark}
+body{background:#070c17;color:var(--ink)}
+.tint{background:#0a1222}
+.card,.svc,.strip div{background:var(--surface);border-color:var(--line);box-shadow:none}
+.svc:hover{box-shadow:0 10px 28px rgba(0,0,0,.45)}
+.svc li,.svc h3{color:var(--ink)}
+.help,.mission,.finder{background:#0f2244;border:1px solid #1f3a66}
+.band{background:#0b1a33;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+footer{background:#050912;border-top:1px solid var(--line)}
+.btn.alt{color:var(--ink)}
+input,textarea,select{background:#0a1120;border-color:#263a5e;color:var(--ink)}
+input::placeholder,textarea::placeholder{color:#6f82a3}
+.price,.tagline{color:#5fa2ff}
+.steps li::before{box-shadow:0 0 0 4px rgba(10,108,240,.18)}
+/* keep the top header white, full width */
+header.top{--ink:#07182b;--muted:#45607c;--soft:#eaf3ff;--line:#d3e3f6;color:#07182b;background:#fff;box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax);color-scheme:light;position:relative;z-index:5}
+header.top .lang{color:#07182b}
+/* ===== Services cards ===== */
+#services.tint{background-color:#080e1b;background-image:linear-gradient(rgba(61,139,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(61,139,255,.07) 1px,transparent 1px);background-size:48px 48px;border-top:1px solid #142039;border-bottom:1px solid #142039;padding:80px 0}
+#services .svc-grid{gap:24px}
+#services .svc{background:#0b1324;border:1px solid #18263f;border-radius:20px;box-shadow:none;transition:transform .2s ease,border-color .2s ease}
+#services .svc:hover{transform:translateY(-4px);border-color:#2c4a7a;box-shadow:none}
+#services .svc img{opacity:.92;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+#services .svc-body{padding:4px 26px 28px}
+#services .svc .ico{display:none}
+#services .svc-head{margin:0 0 14px}
+#services .svc h3{font:700 1.45rem/1.2 "Space Grotesk",sans-serif;color:#fff;letter-spacing:-.005em}
+#services .svc li{color:#c3d0e4;font-size:1.02rem;margin:0 0 10px;padding-left:32px}
+#services .svc li::before{left:3px;top:.4em;width:13px;height:7px;border-left:2.5px solid #3d8bff;border-bottom:2.5px solid #3d8bff}
+@media (prefers-reduced-motion:reduce){#services .svc{transition:none}}
 </style>
 </head>
 <body>
